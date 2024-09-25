@@ -17,12 +17,46 @@ class testFoodConstructor {
 	}
 	
 	@Test
+	public void testWhenNameIsempty() {
+		 assertThrows(IllegalArgumentException.class,
+		            ()->{
+		            Food Mango = new Food ("" , "fruit");
+		            });
+	}
+	
+	@Test
+	public void testWhenNameHasOnlyASpace() {
+		 assertThrows(IllegalArgumentException.class,
+		            ()->{
+		            Food Mango = new Food (" " , "fruit");
+		            });
+	}
+	
+	@Test
 	public void testWhenTypeIsNull() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
 		            Food Mango = new Food ("mango" , null);
 		            });
 	}
+	
+	@Test
+	public void testWhenTypeIsempty() {
+		 assertThrows(IllegalArgumentException.class,
+		            ()->{
+		            Food Mango = new Food ("mango" , "");
+		            });
+	}
+	
+	@Test
+	public void testWhenTypeeHasOnlyASpace() {
+		 assertThrows(IllegalArgumentException.class,
+		            ()->{
+		            Food Mango = new Food ("Mango" , " ");
+		            });
+	}
+	
+	
 	
 	@Test
 	public void testWhenConstructorShouldCreateObject() {

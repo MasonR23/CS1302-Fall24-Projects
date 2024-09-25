@@ -19,15 +19,23 @@ public class Food {
 	 * @param foodType = this is the type of food that you want to store.
 	 * 
 	 * @precondiditons throws an illegalArgumentException if either foodName or
-	 *                 foodType are null.
+	 *                 foodType are null, or if either has a blank value entered in.
 	 */
 	public Food(String foodName, String foodType) throws IllegalArgumentException {
 		if (foodName == null) {
 			throw new IllegalArgumentException("foodName can not be null.");
 		}
+		
+		if (foodName.equals("") || foodName.equals(" ")) {
+			throw new IllegalArgumentException("Foood Name can not be Empty");
+		}
 
 		if (foodType == null) {
 			throw new IllegalArgumentException("foodType can not be null");
+		}
+		
+		if (foodType.equals("") || foodType.equals(" ")) {
+			throw new IllegalArgumentException("Foood Name can not be Empty");
 		}
 
 		this.foodName = foodName;

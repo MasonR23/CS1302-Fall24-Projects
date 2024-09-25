@@ -45,9 +45,11 @@ public class MainWindow {
      * 
      * @param event this is the even that is fired by the button "submitFoodItem".
      */
-    public void addFoodToPantry(ActionEvent event) {
+    public void submitFoodItem(ActionEvent event) {
     	try {
     		Food newFood = new Food(this.foodName.getText(), this.foodType.getValue());
+    		System.out.println("this food's name is: " + this.foodName.getText());
+    		System.out.print(this.foodName.getText().getClass());
     		newFood.changeFoodQuantity(this.foodQuantity.getValue());
     		this.pantry.add(newFood);
         	this.visualRepresentation.add(newFood.getFoodName() + " " + newFood.getfoodType() + " " + newFood.getFoodQuantity());
