@@ -9,13 +9,13 @@
 
 <AnchorPane minHeight="458.0" minWidth="546.0" prefHeight="642.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.FoodPantry.view.MainWindow">
    <children>
-      <TextField fx:id="foodName" layoutX="379.0" layoutY="75.0" />
+      <TextField fx:id="foodName" layoutX="390.0" layoutY="75.0" />
       <Label layoutX="464.0" layoutY="47.0" prefHeight="17.0" prefWidth="64.0" text="Food Name" />
       <Label layoutX="464.0" layoutY="124.0" prefHeight="17.0" prefWidth="64.0" text="Food Type" />
-      <Button fx:id="submitFoodItem" layoutX="469.0" layoutY="296.0" mnemonicParsing="false" onAction="#addFoodToPantry" text="Submit" />
+      <Button fx:id="submitFoodItem" layoutX="469.0" layoutY="296.0" mnemonicParsing="false" text="Submit" />
       <ListView fx:id="foodListView" layoutX="55.0" layoutY="39.0" prefHeight="564.0" prefWidth="274.0" />
-      <ChoiceBox fx:id="foodType" layoutX="379.0" layoutY="148.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="foodQuantity" layoutX="379.0" layoutY="238.0" prefWidth="150.0" />
-      <Label layoutX="454.0" layoutY="213.0" prefHeight="17.0" prefWidth="84.0" text="Food Quantity" />
+      <ChoiceBox fx:id="foodType" layoutX="389.0" layoutY="151.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="foodQuantity" layoutX="389.0" layoutY="239.0" prefWidth="150.0" />
+      <Label layoutX="455.0" layoutY="209.0" prefHeight="17.0" prefWidth="81.0" text="Food Quantity" />
    </children>
 </AnchorPane>
