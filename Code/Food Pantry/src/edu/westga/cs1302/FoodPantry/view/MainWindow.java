@@ -20,52 +20,136 @@ import javafx.scene.control.TextField;
 public class MainWindow {
 
 	 private String[] types = {"Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"};
-	 private Integer[] quantity = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50, 100};
 	 private ArrayList<Food> pantry = new ArrayList<Food>(); 
 	 private ArrayList<String> visualRepresentation = new ArrayList<String>();
-    @FXML
-    private ListView<String> foodListView;
+		@FXML
+		private Button submitQuantity;
 
-    @FXML
-    private TextField foodName;
+		@FXML
+		private ListView<String> foodListView;
 
-    @FXML
-    private ChoiceBox<String> foodType;
-    
-    @FXML
-    private ChoiceBox<Integer> foodQuantity;
+		@FXML
+		private TextField foodName;
 
-    @FXML
-    private Button submitFoodItem;
-    
-    /**this handles when the submitFoodItem button is pressed. 
-     * 
-     * @author Mason Richardson
-     * @version Fall 2024
-     * 
-     * @param event this is the even that is fired by the button "submitFoodItem".
-     */
-    public void submitFoodItem(ActionEvent event) {
-    	try {
-    		Food newFood = new Food(this.foodName.getText(), this.foodType.getValue());
-    		System.out.println("this food's name is: " + this.foodName.getText());
-    		System.out.print(this.foodName.getText().getClass());
-    		newFood.changeFoodQuantity(this.foodQuantity.getValue());
-    		this.pantry.add(newFood);
-        	this.visualRepresentation.add(newFood.getFoodName() + " " + newFood.getfoodType() + " " + newFood.getFoodQuantity());
-        	this.foodListView.getItems().clear();
-        	this.foodListView.getItems().addAll(this.visualRepresentation);
-    	} catch (Exception error) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
-    		alert.setContentText(error.getMessage());
-    		alert.showAndWait();
-    	}
-    }
+		@FXML
+		private TextField foodQuantity;
+
+		@FXML
+		private ChoiceBox<String> foodType;
+
+		@FXML
+		private Button oneDown;
+
+		@FXML
+		private Button oneUp;
+
+		@FXML
+		private Button submitFoodItem;
+		
+		/**This allows for the button that says "click to add one" to actually add one to the quantity
+		 * of the selected item in the listView. 
+		 * 
+		 * @param event when the button to add one is pressed. 
+		 */
+		public void oneDown(ActionEvent event) {
+			String currItem;
+			try {
+				currItem = this.foodListView.getSelectionModel().getSelectedItem();
+				int tempIndex = this.findIndex(currItem);
+				this.pantry.get(tempIndex).changeFoodQuantity(-1);
+				this.visualRepresentation.set(tempIndex,
+						this.pantry.get(tempIndex).getFoodName() + " " + this.pantry.get(tempIndex).getfoodType() + " "
+								+ this.pantry.get(tempIndex).getFoodQuantity());
+				this.foodListView.getItems().clear();
+				this.foodListView.getItems().addAll(this.visualRepresentation);
+			} catch (Exception error) {
+				this.makeAlert(error);
+			}
+		}
+		
+		/**This allows for the button that says "click to add one" to actually add one to the quantity
+		 * of the selected item in the listView. 
+		 * 
+		 * @param event when the button to add one is pressed. 
+		 */
+		public void oneUp(ActionEvent event) {
+			String currItem;
+			try {
+				currItem = this.foodListView.getSelectionModel().getSelectedItem();
+				int tempIndex = this.findIndex(currItem);
+				this.pantry.get(tempIndex).changeFoodQuantity(1);
+				this.visualRepresentation.set(tempIndex,
+						this.pantry.get(tempIndex).getFoodName() + " " + this.pantry.get(tempIndex).getfoodType() + " "
+								+ this.pantry.get(tempIndex).getFoodQuantity());
+				this.foodListView.getItems().clear();
+				this.foodListView.getItems().addAll(this.visualRepresentation);
+			} catch (Exception error) {
+				this.makeAlert(error);
+			}
+		}
+		
+		/**
+		 * This uses the foodQuantity text field to update a selected food item in the
+		 * pantry's quantity.
+		 * 
+		 * @param event the submitQuantity button being pressed
+		 */
+		public void submitQuantity(ActionEvent event) {
+			String currItem;
+			try {
+				int tempQuantity = Integer.parseInt(this.foodQuantity.getText());
+				currItem = this.foodListView.getSelectionModel().getSelectedItem();
+				int tempIndex = this.findIndex(currItem);
+				this.pantry.get(tempIndex).setFoodQuantity(tempQuantity);
+				this.visualRepresentation.set(tempIndex,
+						this.pantry.get(tempIndex).getFoodName() + " " + this.pantry.get(tempIndex).getfoodType() + " "
+								+ this.pantry.get(tempIndex).getFoodQuantity());
+				this.foodListView.getItems().clear();
+				this.foodListView.getItems().addAll(this.visualRepresentation);
+			} catch (Exception error) {
+				this.makeAlert(error);
+			}
+		}
+
+		/**
+		 * this handles when the submitFoodItem button is pressed.
+		 * 
+		 * @author Mason Richardson
+		 * @version Fall 2024
+		 * 
+		 * @param event this is the even that is fired by the button "submitFoodItem".
+		 */
+		public void submitFoodItem(ActionEvent event) {
+			try {
+				Food newFood = new Food(this.foodName.getText(), this.foodType.getValue());
+				this.pantry.add(newFood);
+				this.visualRepresentation
+						.add(newFood.getFoodName() + " " + newFood.getfoodType() + " " + newFood.getFoodQuantity());
+				this.foodListView.getItems().clear();
+				this.foodListView.getItems().addAll(this.visualRepresentation);
+			} catch (Exception error) {
+				this.makeAlert(error);
+			}
+		}
     
     @FXML
 	void initialize() {
 		this.foodType.getItems().addAll(this.types);
-		this.foodQuantity.getItems().addAll(this.quantity);
 	}
+    
+    private int findIndex(String foodName) {
+    	for (int temp = 0; temp < this.visualRepresentation.size(); temp++) {
+    		if (this.visualRepresentation.get(temp).equals(foodName)) {
+    			return temp;
+    		}
+    	}
+    	return Integer.MIN_VALUE;
+    }
+    
+    private void makeAlert(Exception error) {
+    	Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setContentText(error.getMessage());
+		alert.showAndWait();
+    }
 
 }

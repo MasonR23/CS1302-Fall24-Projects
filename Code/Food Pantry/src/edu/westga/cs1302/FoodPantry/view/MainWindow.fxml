@@ -12,10 +12,13 @@
       <TextField fx:id="foodName" layoutX="390.0" layoutY="75.0" />
       <Label layoutX="464.0" layoutY="47.0" prefHeight="17.0" prefWidth="64.0" text="Food Name" />
       <Label layoutX="464.0" layoutY="124.0" prefHeight="17.0" prefWidth="64.0" text="Food Type" />
-      <Button fx:id="submitFoodItem" layoutX="469.0" layoutY="296.0" mnemonicParsing="false" onAction="#submitFoodItem" text="Submit" />
+      <Button fx:id="submitFoodItem" layoutX="469.0" layoutY="195.0" mnemonicParsing="false" onAction="#submitFoodItem" text="Submit" />
       <ListView fx:id="foodListView" layoutX="55.0" layoutY="39.0" prefHeight="564.0" prefWidth="274.0" />
       <ChoiceBox fx:id="foodType" layoutX="389.0" layoutY="151.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="foodQuantity" layoutX="389.0" layoutY="239.0" prefWidth="150.0" />
-      <Label layoutX="455.0" layoutY="209.0" prefHeight="17.0" prefWidth="81.0" text="Food Quantity" />
+      <Label layoutX="442.0" layoutY="250.0" prefHeight="17.0" prefWidth="81.0" text="Food Quantity" />
+      <TextField fx:id="foodQuantity" layoutX="383.0" layoutY="273.0" />
+      <Button fx:id="submitQuantity" layoutX="354.0" layoutY="309.0" mnemonicParsing="false" onAction="#submitQuantity" prefHeight="25.0" prefWidth="175.0" text="Press To Change Quantity" />
+      <Button fx:id="oneDown" layoutX="354.0" layoutY="347.0" mnemonicParsing="false" onAction="#oneDown" prefHeight="25.0" prefWidth="175.0" text="Click To Remove One" />
+      <Button fx:id="oneUp" layoutX="354.0" layoutY="384.0" mnemonicParsing="false" onAction="#oneUp" prefHeight="25.0" prefWidth="175.0" text="Click to Add One" />
    </children>
 </AnchorPane>

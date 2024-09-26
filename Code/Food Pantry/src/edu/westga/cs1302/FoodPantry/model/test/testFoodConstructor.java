@@ -12,7 +12,7 @@ class testFoodConstructor {
 	public void testWhenNameIsNull() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food (null , "fruit");
+		            new Food (null , "fruit");
 		            });
 	}
 	
@@ -20,7 +20,7 @@ class testFoodConstructor {
 	public void testWhenNameIsempty() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food ("" , "fruit");
+		           new Food ("" , "fruit");
 		            });
 	}
 	
@@ -28,7 +28,7 @@ class testFoodConstructor {
 	public void testWhenNameHasOnlyASpace() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food (" " , "fruit");
+		             new Food (" " , "fruit");
 		            });
 	}
 	
@@ -36,7 +36,7 @@ class testFoodConstructor {
 	public void testWhenTypeIsNull() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food ("mango" , null);
+		             new Food ("mango" , null);
 		            });
 	}
 	
@@ -44,7 +44,7 @@ class testFoodConstructor {
 	public void testWhenTypeIsempty() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food ("mango" , "");
+		             new Food ("mango" , "");
 		            });
 	}
 	
@@ -52,7 +52,7 @@ class testFoodConstructor {
 	public void testWhenTypeeHasOnlyASpace() {
 		 assertThrows(IllegalArgumentException.class,
 		            ()->{
-		            Food Mango = new Food ("Mango" , " ");
+		            new Food ("Mango" , " ");
 		            });
 	}
 	

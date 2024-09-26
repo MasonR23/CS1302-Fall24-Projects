@@ -67,11 +67,28 @@ public class Food {
 		return this.foodQuantity;
 	}
 	
-	/** this is a method that changes the quantity of the food object in a pantry. 
+	/** This method SETS the quantity.
 	 * 
 	 * @param newQuantity this is the desired new quantity of the food repented as an int. 
 	 */
-	public void changeFoodQuantity(int newQuantity) {
+	public void setFoodQuantity(int newQuantity) {
 		this.foodQuantity = newQuantity;
+	}
+	
+	/**this is a method that adds the passed in value to the current Quantity. 
+	 * 
+	 * IF the quantity goes below 0, a exception will be thrown telling the user that the quantity can not go below zero.
+	 * 
+	 * @param differenceOrSum number that either needs to be subtracted (by passing in a negative number) or 
+	 * needs to be added (by passing in a positive number) to the current food Quantity. 
+	 */
+	public void changeFoodQuantity(int differenceOrSum) throws IllegalArgumentException {
+		int pendingQuantity = this.foodQuantity + differenceOrSum;
+		
+		if (pendingQuantity < 0) {
+			throw new IllegalArgumentException("Quantity can not be less than zero");
+		}
+		
+		this.foodQuantity = pendingQuantity;
 	}
 }
