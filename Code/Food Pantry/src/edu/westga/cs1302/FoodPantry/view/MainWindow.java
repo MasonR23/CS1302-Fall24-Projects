@@ -3,6 +3,7 @@ package edu.westga.cs1302.FoodPantry.view;
 import java.util.ArrayList;
 
 import edu.westga.cs1302.FoodPantry.model.Food;
+import edu.westga.cs1302.UtilityClasses.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -48,6 +49,25 @@ public class MainWindow {
 		
 		@FXML
 		private Button removeItem;
+		
+		@FXML
+	    private Button showTotoal;
+		
+		/**This is method shows the total ammount of items inside the pantry.
+		 * 
+		 * @param event when the showTotal button is pressed. 
+		 */
+		public void showTotal(ActionEvent event) {
+			try {
+			int total = Utility.findTotalAmmountOfItems(this.pantry);
+			
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setContentText("Total Ammount of Items In Pantry: " + total);
+			alert.showAndWait();
+			} catch (IllegalArgumentException error) {
+				this.makeAlert(error);
+			}
+		}
 		
 		/**This allows for the removal of items from the list using the "RemoveItem" button
 		 * 

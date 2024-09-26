@@ -21,5 +21,6 @@
       <Button fx:id="oneDown" layoutX="354.0" layoutY="347.0" mnemonicParsing="false" onAction="#oneDown" prefHeight="25.0" prefWidth="175.0" text="Click To Remove One" />
       <Button fx:id="oneUp" layoutX="354.0" layoutY="384.0" mnemonicParsing="false" onAction="#oneUp" prefHeight="25.0" prefWidth="175.0" text="Click to Add One" />
       <Button fx:id="removeItem" layoutX="355.0" layoutY="552.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="175.0" text="Click To Remove Selected" />
+      <Button fx:id="showTotoal" layoutX="355.0" layoutY="476.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="43.0" prefWidth="175.0" text="Show  Total Ammount of Each Item combined" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
