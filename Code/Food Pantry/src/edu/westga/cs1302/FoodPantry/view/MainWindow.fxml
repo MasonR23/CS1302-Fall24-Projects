@@ -20,5 +20,6 @@
       <Button fx:id="submitQuantity" layoutX="354.0" layoutY="309.0" mnemonicParsing="false" onAction="#submitQuantity" prefHeight="25.0" prefWidth="175.0" text="Press To Change Quantity" />
       <Button fx:id="oneDown" layoutX="354.0" layoutY="347.0" mnemonicParsing="false" onAction="#oneDown" prefHeight="25.0" prefWidth="175.0" text="Click To Remove One" />
       <Button fx:id="oneUp" layoutX="354.0" layoutY="384.0" mnemonicParsing="false" onAction="#oneUp" prefHeight="25.0" prefWidth="175.0" text="Click to Add One" />
+      <Button fx:id="removeItem" layoutX="355.0" layoutY="552.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="25.0" prefWidth="175.0" text="Click To Remove Selected" />
    </children>
 </AnchorPane>

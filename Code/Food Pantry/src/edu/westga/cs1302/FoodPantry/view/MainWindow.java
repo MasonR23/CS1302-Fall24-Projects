@@ -46,6 +46,28 @@ public class MainWindow {
 		@FXML
 		private Button submitFoodItem;
 		
+		@FXML
+		private Button removeItem;
+		
+		/**This allows for the removal of items from the list using the "RemoveItem" button
+		 * 
+		 * @param event when button to remove the selected option is pressed.
+		 * 
+		 */
+		public void removeItem(ActionEvent event) {
+			String currItem;
+			try {
+				currItem = this.foodListView.getSelectionModel().getSelectedItem();
+				int tempIndex = this.findIndex(currItem);
+				this.pantry.remove(tempIndex);
+				this.visualRepresentation.remove(tempIndex);
+				this.foodListView.getItems().clear();
+				this.foodListView.getItems().addAll(this.visualRepresentation);
+			} catch (Exception error) {
+				this.makeAlert(error);
+			}
+		}
+		
 		/**This allows for the button that says "click to add one" to actually add one to the quantity
 		 * of the selected item in the listView. 
 		 * 
